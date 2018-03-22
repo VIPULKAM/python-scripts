@@ -19,16 +19,16 @@ class Employeedb_Test(TestCase):
         self.assertEqual(emp1.full_name, 'Vipul Kadam')
         self.assertEqual(emp2.full_name, 'Lekshmi Krishnan')
 
-    def test_insert_db(self):
+    def test_insert_delete_db(self):
         emp1.insert_db()
         emp2.insert_db()
         self.assertEqual(emp2.get_emp_by_empid(157286), (157286, 'Lekshmi', 'Krishnan'))
         self.assertEqual(emp1.get_emp_by_empid(63862), (63862, 'Vipul', 'Kadam'))
-
-    def test_delete_db(self):
         emp1.delete_db(63862)
+        emp1.delete_db(157286)
         self.assertEqual(emp1.get_emp_by_empid(63862), None)
         self.assertEqual(emp2.get_emp_by_empid(157286), (157286, 'Lekshmi', 'Krishnan'))
+
 
 if __name__ == '__main__':
     main()
