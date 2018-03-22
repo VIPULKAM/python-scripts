@@ -24,10 +24,15 @@ class Employee_Db(Employee):
         with self.conn:
             self.cur.execute("insert into employees values(:emp_id, :first, :last)", {'emp_id':self.emp_id, 'first':self.first, 'last':self.last})
 
+    def delete_db(self, emp_id):
+        with self.conn:
+            self.cur.execute("delete from employees where emp_id =:emp_id", {'emp_id':emp_id})
+
     def get_emp_by_empid(self, emp_id):
-        self.cur.execute("select emp_id from employees where emp_id =:emp_id",{'emp_id': emp_id})
-        self.t = self.cur.fetchone()
-        self.emp_id, = self.t
-        return self.emp_id
+        self.cur.execute("select * from employees where emp_id =:emp_id",{'emp_id': emp_id})
+        return self.cur.fetchone()
+        #self.emp_id = print(self.t)
+        #self.emp_id = self.t
+        #return self.emp_id
 
 
