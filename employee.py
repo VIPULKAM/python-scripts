@@ -21,7 +21,7 @@ class Employee(object):
         return f"{self.first} {self.last}"
 
     @property
-    def emp_email(self):
+    def email(self):
         '''
         This method returns emailid of the employee
         '''

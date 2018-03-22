@@ -7,18 +7,17 @@ class Employee_Db(Employee):
         self.emp_id = emp_id
         self.first = first
         self.last = last
-        super().__init__(self.emp_id, self.first, self.last)
+        super().__init__(self.emp_id, self.first, self.last) # Calling super class constructor
+
+        # Intializing sqllite database in memory
+
         self.conn = sqlite3.connect(':memory:')
         self.cur = self.conn.cursor()
         with self.conn:
-            self.cur.execute("""CREATE TABLE employees(
-                emp_id,
-                first text,
-                last text)
-                """)
+            self.cur.execute("""CREATE TABLE employees( emp_id, first text, last text)""")
 
-    def __repr__(self):
-        pass
+    #def __repr__(self):
+    #    return super().__repr__()
 
     def insert_db(self):
         with self.conn:
@@ -31,8 +30,5 @@ class Employee_Db(Employee):
     def get_emp_by_empid(self, emp_id):
         self.cur.execute("select * from employees where emp_id =:emp_id",{'emp_id': emp_id})
         return self.cur.fetchone()
-        #self.emp_id = print(self.t)
-        #self.emp_id = self.t
-        #return self.emp_id
 
 

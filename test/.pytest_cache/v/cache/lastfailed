@@ -1,1 +1,4 @@
-{}
+{
+  "test_employee.py::test_emp_email": true,
+  "test_employee.py::test_emp_repr": true
+}
