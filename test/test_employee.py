@@ -12,8 +12,8 @@ def testinit():
 def test_emp_fullname():
         assert(emp1.full_name == 'Vipul Kadam')
 
-def test_emp_email():
-        assert(emp1.emp_email == 'Vipul.Kadam@company.com')
+def test_email():
+        assert(emp1.email == 'Vipul.Kadam@company.com')
 
 def test_emp_repr():
         assert(emp1.__repr__() == '63862:Vipul Kadam::Vipul.Kadam@company.com')

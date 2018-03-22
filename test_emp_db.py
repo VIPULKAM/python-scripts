@@ -25,8 +25,9 @@ class Employeedb_Test(TestCase):
         self.assertEqual(emp2.get_emp_by_empid(157286), (157286, 'Lekshmi', 'Krishnan'))
         self.assertEqual(emp1.get_emp_by_empid(63862), (63862, 'Vipul', 'Kadam'))
         emp1.delete_db(63862)
-        emp1.delete_db(157286)
+        #emp2.delete_db(157286)
         self.assertEqual(emp1.get_emp_by_empid(63862), None)
+        #self.assertEqual(emp2.get_emp_by_empid(63862), None)
         self.assertEqual(emp2.get_emp_by_empid(157286), (157286, 'Lekshmi', 'Krishnan'))
 
 

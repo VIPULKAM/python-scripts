@@ -7,7 +7,7 @@ class Employee(object):
 
     def __repr__(self):
 
-        return f"{self.emp_id}:{self.first} {self.last}::{self.emp_email}"
+        return f"{self.emp_id}:{self.first} {self.last}::{self.email}"
 
     def __str__(self):
 
