@@ -1,4 +1,3 @@
-
 import time
 from functools import wraps
 
@@ -29,10 +28,9 @@ def timeit(funct):
     return wrapper
 
 @Timeit
-@timeit
+@time
 def display():
     #time.sleep(2)
     print("This is simple display function")
-
 
 display()

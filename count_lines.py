@@ -1,5 +1,5 @@
 
-file_path='/tmp/pledge.txt'
+file_path='c:\\Python\\pledge.txt'
 
 def count_lines(handle):
     '''
@@ -12,6 +12,21 @@ def count_lines(handle):
             continue
     return offset
 
+def count_occurnace(handle, word):
+    '''
+    This function returns the word count in a given file
+    '''
+    count = 0
+    for line in handle:
+        if word in line:
+            count += 1
+    return word, count
+
 with open(file_path) as f:
     line_count = count_lines(f)
-    print("Total number of lines in {line_count}")
+    print(f"Total number of lines in '{file_path}':={line_count}")
+
+with open(file_path) as f:
+    word_count = count_occurnace(f, "is")
+    count, word = word_count
+print(f"For word \"{count}\" number of occurances are '{word}'")

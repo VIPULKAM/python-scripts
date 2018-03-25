@@ -1,3 +1,5 @@
+from time import sleep
+
 def index_words(handle):
     offset = 0
     for line in handle:
@@ -18,16 +20,17 @@ To my country and my people,
 I pledge my devotion.
 In their well being and prosperity alone lies my happiness.'''
 
-with open('/tmp/pledge.txt', 'w') as f:
+with open('c:\\Python\\pledge.txt', 'w') as f:
     f.write(pledge)
 
-with open('/tmp/pledge.txt') as f:
+with open('c:\\Python\\pledge.txt') as f:
     it = index_words(f)
-    print(next(it))
-    print(next(it))
-    print(next(it))
-    print(next(it))
-    print(next(it))
-    print(next(it))
-    print(next(it))
+
+    while True:
+        try:
+            print(next(it))
+            sleep(1)
+        except StopIteration:
+            print("All blank space inexes consumed.")
+            break
 

@@ -1,12 +1,15 @@
-# Data in millions who visited one of US state
-path = '/tmp/my_numbers.txt'
+# Data in millions who visited one of US state:: Data = [22, 45, 16]
+path = 'c:\\Python\\my_numbers.txt'
 
 class Read_Visits(object):
 
     def __init__(self, data_path):
         self.data_path = data_path
+        self.count = 0
 
     def __iter__(self):
+        self.count += 1
+        print(self.count)  # To print the number of times __iter__() called
         with open(self.data_path) as f:
             for line in f:
                 yield int(line)
@@ -26,22 +29,19 @@ def normalize(visits):
         result.append(percent)
     return result
 
-''' To pass aribitary data to function '''
+it = Read_Visits(path)
+print(normalize(it))
 
 '''path = '/tmp/my_numbers.txt'
-
+data = [18, 45, 15]
 with open(path, 'w') as f:
     for i in data:
         f.write(f'{i}\n')
-'''
+
+# Functional implementation without generators
 
 def read_visits(file_path):
-    '''
-    This function generating the values
-    '''
     with open(file_path) as f:
         for line in f:
             yield int(line)
-
-it = Read_Visits(path)
-print(normalize(it))
+'''

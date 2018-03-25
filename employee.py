@@ -7,7 +7,7 @@ class Employee(object):
 
     def __repr__(self):
 
-        return f"{self.emp_id}:{self.first} {self.last}::{self.email}"
+        return f"{self.emp_id}:{self.first} {self.last}::{self.emp_email}"
 
     def __str__(self):
 
@@ -21,7 +21,7 @@ class Employee(object):
         return f"{self.first} {self.last}"
 
     @property
-    def email(self):
+    def emp_email(self):
         '''
         This method returns emailid of the employee
         '''
